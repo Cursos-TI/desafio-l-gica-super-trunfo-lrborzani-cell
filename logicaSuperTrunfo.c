@@ -12,15 +12,15 @@ int main() {
 
     char codigo01[20];
     printf("Código: ");
-    scanf("%s", codigo01);
+    scanf("%s", &codigo01);
 
     char estado01[20];
     printf("Estado: ");
-    scanf("%s", estado01);
+    scanf("%s", &estado01);
 
     char nome01[30];
     printf("Nome da cidade: ");
-    scanf(" %[^\n]", nome01); // permite espaços
+    fgets(nome01,30,stdin);
 
     int populacao01;
     printf("População: ");
@@ -50,15 +50,15 @@ int main() {
 
     char codigo02[20];
     printf("Código: ");
-    scanf("%s", codigo02);
+    scanf("%s", &codigo02);
 
     char estado02[20];
     printf("Estado: ");
-    scanf("%s", estado02);
+    scanf("%s", &estado02);
 
     char nome02[30];
     printf("Nome da cidade: ");
-    scanf(" %[^\n]", nome02);
+    fgets(nome02,30,stdin);
 
     int populacao02;
     printf("População: ");
