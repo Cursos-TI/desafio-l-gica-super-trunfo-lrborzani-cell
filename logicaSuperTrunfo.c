@@ -2,154 +2,403 @@
 
 int main() {
 
-    printf("Bem-vindo ao Super Trunfo - Cidades!\n");
-    printf("Vamos cadastrar as informações das cartas de duas cidades.\n");
+    // =========================
+    // CARTA 1
+    // =========================
+    
+    char codigo01[] = "A01";
+    char estado01[] = "SP";
+    char nome01[] = "Campinas";
+    int populacao01 = 1214000;
+    float area01 = 795.7;
+    float pib01 = 72800000000.0;
+    int pontos01 = 15;
 
-    // ========================
-    // CIDADE 1
-    // ========================
-    printf("\nDigite as informações da Cidade 1:\n");
-
-    char codigo01[20];
-    printf("Código: ");
-    scanf("%s", &codigo01);
-
-    char estado01[20];
-    printf("Estado: ");
-    scanf("%s", &estado01);
-
-    char nome01[30];
-    printf("Nome da cidade: ");
-    fgets(nome01,30,stdin);
-
-    int populacao01;
-    printf("População: ");
-    scanf("%d", &populacao01);
-
-    float area01;
-    printf("Área (km²): ");
-    scanf("%f", &area01);
-
-    float pib01;
-    printf("PIB (R$): ");
-    scanf("%f", &pib01);
-
-    int pontosTuristicos01;
-    printf("Pontos turísticos: ");
-    scanf("%d", &pontosTuristicos01);
-
-    // Cálculos
-    float densidade01 = (area01 != 0) ? populacao01 / area01 : 0;
-    float pibPerCapita01 = (populacao01 != 0) ? pib01 / populacao01 : 0;
+    float densidade01 = populacao01 / area01;
+    float pibPerCapita01 = pib01 / populacao01;
 
 
-    // ========================
-    // CIDADE 2
-    // ========================
-    printf("\nDigite as informações da Cidade 2:\n");
+    // =========================
+    // CARTA 2
+    // =========================
 
-    char codigo02[20];
-    printf("Código: ");
-    scanf("%s", &codigo02);
+    char codigo02[] = "A02";
+    char estado02[] = "RJ";
+    char nome02[] = "Niteroi";
+    int populacao02 = 515000;
+    float area02 = 133.9;
+    float pib02 = 23500000000.0;
+    int pontos02 = 12;
 
-    char estado02[20];
-    printf("Estado: ");
-    scanf("%s", &estado02);
-
-    char nome02[30];
-    printf("Nome da cidade: ");
-    fgets(nome02,30,stdin);
-
-    int populacao02;
-    printf("População: ");
-    scanf("%d", &populacao02);
-
-    float area02;
-    printf("Área (km²): ");
-    scanf("%f", &area02);
-
-    float pib02;
-    printf("PIB (R$): ");
-    scanf("%f", &pib02);
-
-    int pontosTuristicos02;
-    printf("Pontos turísticos: ");
-    scanf("%d", &pontosTuristicos02);
-
-    // Cálculos
-    float densidade02 = (area02 != 0) ? populacao02 / area02 : 0;
-    float pibPerCapita02 = (populacao02 != 0) ? pib02 / populacao02 : 0;
+    float densidade02 = populacao02 / area02;
+    float pibPerCapita02 = pib02 / populacao02;
 
 
-    // ========================
-    // EXIBIÇÃO DOS DADOS
-    // ========================
-    printf("\n===== DADOS DAS CARTAS =====\n");
+    // =========================
+    // ESCOLHA DA CARTA
+    // =========================
 
-    printf("\nCidade 1: %s\n", nome01);
-    printf("População: %d\n", populacao01);
-    printf("Área: %.2f\n", area01);
-    printf("PIB: %.2f\n", pib01);
-    printf("Densidade: %.2f\n", densidade01);
-    printf("PIB per capita: %.2f\n", pibPerCapita01);
+    int escolhaCarta;
 
-    printf("\nCidade 2: %s\n", nome02);
-    printf("População: %d\n", populacao02);
-    printf("Área: %.2f\n", area02);
-    printf("PIB: %.2f\n", pib02);
-    printf("Densidade: %.2f\n", densidade02);
-    printf("PIB per capita: %.2f\n", pibPerCapita02);
+    printf("======= SUPER TRUNFO =======\n");
+
+    printf("\nEscolha sua carta:\n");
+    printf("1 - %s\n", codigo01);
+    printf("2 - %s\n", codigo02);
+
+    printf("\nDigite sua escolha: ");
+    scanf("%d", &escolhaCarta);
 
 
-    // ========================
-    // COMPARAÇÕES
-    // ========================
-    printf("\n===== RESULTADOS =====\n");
+    // =========================
+    // VARIÁVEIS DO JOGO
+    // =========================
 
-    // População
-    if (populacao01 > populacao02) {
-        printf("Maior população: %s\n", nome01);
-    } else if (populacao02 > populacao01) {
-        printf("Maior população: %s\n", nome02);
-    } else {
-        printf("População: empate\n");
+    char *jogador;
+    char *adversario;
+
+    int popJogador, popAdv;
+    float areaJogador, areaAdv;
+    float pibJogador, pibAdv;
+    int pontosJogador, pontosAdv;
+    float densidadeJogador, densidadeAdv;
+    float pibCapitaJogador, pibCapitaAdv;
+
+
+    // =========================
+    // DEFINIÇÃO DAS CARTAS
+    // =========================
+
+    switch(escolhaCarta) {
+
+        case 1:
+
+            jogador = nome01;
+            adversario = nome02;
+
+            popJogador = populacao01;
+            popAdv = populacao02;
+
+            areaJogador = area01;
+            areaAdv = area02;
+
+            pibJogador = pib01;
+            pibAdv = pib02;
+
+            pontosJogador = pontos01;
+            pontosAdv = pontos02;
+
+            densidadeJogador = densidade01;
+            densidadeAdv = densidade02;
+
+            pibCapitaJogador = pibPerCapita01;
+            pibCapitaAdv = pibPerCapita02;
+
+
+        //Display da carta escolhida. 
+         printf("\nSua carta escolhida foi:\n");
+         printf("Código: %s\n", codigo01);
+         printf("Estado: %s\n", estado01);
+         printf("Cidade: %s\n", nome01);
+         printf("População: %d\n", populacao01);
+         printf("Área: %.2f km²\n", area01);
+         printf("PIB: R$ %.2f\n", pib01);
+         printf("Densidade populacional: %.2f hab/km²\n", densidade01);
+         printf("PIB per capita: R$ %.2f\n", pibPerCapita01);
+
+            break;
+
+
+        case 2:
+
+            jogador = nome02;
+            adversario = nome01;
+
+            popJogador = populacao02;
+            popAdv = populacao01;
+
+            areaJogador = area02;
+            areaAdv = area01;
+
+            pibJogador = pib02;
+            pibAdv = pib01;
+
+            pontosJogador = pontos02;
+            pontosAdv = pontos01;
+
+            densidadeJogador = densidade02;
+            densidadeAdv = densidade01;
+
+            pibCapitaJogador = pibPerCapita02;
+            pibCapitaAdv = pibPerCapita01;
+
+              //Display da carta escolhida. 
+             printf("\nSua carta escolhida foi:\n");
+             printf("Código: %s\n", codigo02);
+             printf("Estado: %s\n", estado02);
+             printf("Cidade: %s\n", nome02);
+             printf("População: %d\n", populacao02);
+             printf("Área: %.2f km²\n", area02);
+             printf("PIB: R$ %.2f\n", pib02);
+             printf("Densidade populacional: %.2f hab/km²\n", densidade02);
+             printf("PIB per capita: R$ %.2f\n", pibPerCapita02);
+            break;
+
+
+        default:
+            printf("\nOpção inválida!\n");
+            return 0;
     }
 
-    // Área
-    if (area01 > area02) {
-        printf("Maior área: %s\n", nome01);
-    } else if (area02 > area01) {
-        printf("Maior área: %s\n", nome02);
-    } else {
-        printf("Área: empate\n");
+
+    // =========================
+    // MENU DO PRIMEIRO ATRIBUTO
+    // =========================
+
+    int atributo1, atributo2;
+
+    printf("\n======= ESCOLHA O PRIMEIRO ATRIBUTO =======\n");
+
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Pontos Turísticos\n");
+    printf("5 - Densidade Demográfica\n");
+    printf("6 - PIB per Capita\n");
+
+    printf("\nDigite a opção: ");
+    scanf("%d", &atributo1);
+
+
+    // =========================
+    // MENU DINÂMICO
+    // =========================
+
+    printf("\n======= ESCOLHA O SEGUNDO ATRIBUTO =======\n");
+
+    switch(atributo1) {
+
+        case 1:
+            printf("2 - Área\n");
+            printf("3 - PIB\n");
+            printf("4 - Pontos Turísticos\n");
+            printf("5 - Densidade Demográfica\n");
+            printf("6 - PIB per Capita\n");
+            break;
+
+        case 2:
+            printf("1 - População\n");
+            printf("3 - PIB\n");
+            printf("4 - Pontos Turísticos\n");
+            printf("5 - Densidade Demográfica\n");
+            printf("6 - PIB per Capita\n");
+            break;
+
+        case 3:
+            printf("1 - População\n");
+            printf("2 - Área\n");
+            printf("4 - Pontos Turísticos\n");
+            printf("5 - Densidade Demográfica\n");
+            printf("6 - PIB per Capita\n");
+            break;
+
+        case 4:
+            printf("1 - População\n");
+            printf("2 - Área\n");
+            printf("3 - PIB\n");
+            printf("5 - Densidade Demográfica\n");
+            printf("6 - PIB per Capita\n");
+            break;
+
+        case 5:
+            printf("1 - População\n");
+            printf("2 - Área\n");
+            printf("3 - PIB\n");
+            printf("4 - Pontos Turísticos\n");
+            printf("6 - PIB per Capita\n");
+            break;
+
+        case 6:
+            printf("1 - População\n");
+            printf("2 - Área\n");
+            printf("3 - PIB\n");
+            printf("4 - Pontos Turísticos\n");
+            printf("5 - Densidade Demográfica\n");
+            break;
+
+        default:
+            printf("\nAtributo inválido!\n");
+            return 0;
     }
 
-    // PIB
-    if (pib01 > pib02) {
-        printf("Maior PIB: %s\n", nome01);
-    } else if (pib02 > pib01) {
-        printf("Maior PIB: %s\n", nome02);
-    } else {
-        printf("PIB: empate\n");
+    printf("\nDigite a opção: ");
+    scanf("%d", &atributo2);
+
+
+    // Validação
+    if(atributo1 == atributo2) {
+        printf("\nErro: atributos iguais não são permitidos!\n");
+        return 0;
     }
 
-    // Densidade (MENOR vence)
-    if (densidade01 < densidade02) {
-        printf("Menor densidade: %s\n", nome01);
-    } else if (densidade02 < densidade01) {
-        printf("Menor densidade: %s\n", nome02);
-    } else {
-        printf("Densidade: empate\n");
+
+    // =========================
+    // VARIÁVEIS DE COMPARAÇÃO
+    // =========================
+
+    float valor1Jogador = 0;
+    float valor1Adv = 0;
+
+    float valor2Jogador = 0;
+    float valor2Adv = 0;
+
+    char nomeAtributo1[50];
+    char nomeAtributo2[50];
+
+
+    // =========================
+    // ATRIBUTO 1
+    // =========================
+
+    switch(atributo1) {
+
+        case 1:
+            valor1Jogador = popJogador;
+            valor1Adv = popAdv;
+            sprintf(nomeAtributo1, "População");
+            break;
+
+        case 2:
+            valor1Jogador = areaJogador;
+            valor1Adv = areaAdv;
+            sprintf(nomeAtributo1, "Área");
+            break;
+
+        case 3:
+            valor1Jogador = pibJogador;
+            valor1Adv = pibAdv;
+            sprintf(nomeAtributo1, "PIB");
+            break;
+
+        case 4:
+            valor1Jogador = pontosJogador;
+            valor1Adv = pontosAdv;
+            sprintf(nomeAtributo1, "Pontos Turísticos");
+            break;
+
+        case 5:
+            valor1Jogador = densidadeJogador;
+            valor1Adv = densidadeAdv;
+            sprintf(nomeAtributo1, "Densidade Demográfica");
+            break;
+
+        case 6:
+            valor1Jogador = pibCapitaJogador;
+            valor1Adv = pibCapitaAdv;
+            sprintf(nomeAtributo1, "PIB per Capita");
+            break;
     }
 
-    // PIB per capita
-    if (pibPerCapita01 > pibPerCapita02) {
-        printf("Maior PIB per capita: %s\n", nome01);
-    } else if (pibPerCapita02 > pibPerCapita01) {
-        printf("Maior PIB per capita: %s\n", nome02);
-    } else {
-        printf("PIB per capita: empate\n");
+
+    // =========================
+    // ATRIBUTO 2
+    // =========================
+
+    switch(atributo2) {
+
+        case 1:
+            valor2Jogador = popJogador;
+            valor2Adv = popAdv;
+            sprintf(nomeAtributo2, "População");
+            break;
+
+        case 2:
+            valor2Jogador = areaJogador;
+            valor2Adv = areaAdv;
+            sprintf(nomeAtributo2, "Área");
+            break;
+
+        case 3:
+            valor2Jogador = pibJogador;
+            valor2Adv = pibAdv;
+            sprintf(nomeAtributo2, "PIB");
+            break;
+
+        case 4:
+            valor2Jogador = pontosJogador;
+            valor2Adv = pontosAdv;
+            sprintf(nomeAtributo2, "Pontos Turísticos");
+            break;
+
+        case 5:
+            valor2Jogador = densidadeJogador;
+            valor2Adv = densidadeAdv;
+            sprintf(nomeAtributo2, "Densidade Demográfica");
+            break;
+
+        case 6:
+            valor2Jogador = pibCapitaJogador;
+            valor2Adv = pibCapitaAdv;
+            sprintf(nomeAtributo2, "PIB per Capita");
+            break;
     }
+
+
+    // =========================
+    // SOMA DOS ATRIBUTOS
+    // =========================
+
+    float somaJogador;
+    float somaAdv;
+
+    // Densidade: menor vence
+    somaJogador =
+        (atributo1 == 5 ? -valor1Jogador : valor1Jogador) +
+        (atributo2 == 5 ? -valor2Jogador : valor2Jogador);
+
+    somaAdv =
+        (atributo1 == 5 ? -valor1Adv : valor1Adv) +
+        (atributo2 == 5 ? -valor2Adv : valor2Adv);
+
+
+    // =========================
+    // RESULTADOS
+    // =========================
+
+    printf("\n======= RESULTADO DA RODADA =======\n");
+
+    printf("\nCarta do jogador: %s\n", jogador);
+    printf("Carta adversária: %s\n", adversario);
+
+    printf("\nAtributo 1: %s\n", nomeAtributo1);
+    printf("%s: %.2f\n", jogador, valor1Jogador);
+    printf("%s: %.2f\n", adversario, valor1Adv);
+
+    printf("\nAtributo 2: %s\n", nomeAtributo2);
+    printf("%s: %.2f\n", jogador, valor2Jogador);
+    printf("%s: %.2f\n", adversario, valor2Adv);
+
+    printf("\n======= SOMA DOS ATRIBUTOS =======\n");
+
+    printf("%s: %.2f\n", jogador, somaJogador);
+    printf("%s: %.2f\n", adversario, somaAdv);
+
+
+    // =========================
+    // OPERADOR TERNÁRIO
+    // =========================
+
+    printf("\n======= VENCEDOR =======\n");
+
+    (somaJogador > somaAdv)
+        ? printf("%s venceu a rodada!\n", jogador)
+
+        : (somaAdv > somaJogador)
+
+            ? printf("%s venceu a rodada!\n", adversario)
+
+            : printf("Empate!\n");
+
 
     return 0;
 }
